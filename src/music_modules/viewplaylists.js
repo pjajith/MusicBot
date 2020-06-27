@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 
 module.exports = async (message,pl) => {
-    var playlists = '';
+    var playlists = 'No Playlist have been saved';
     for(var i=0; i < pl.length;i++){
         playlists = playlists +'<:queue:726340852976189440> '+ pl[i].name +' saved by <@'+pl[i].userID+'>'+'\n';
     }

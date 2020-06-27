@@ -9,11 +9,6 @@ module.exports = (args,message,servers) => {
 
     var server = servers[message.guild.id];
 
-    if(!server.dispatcher || !message.guild.me.voice.channel || !message.member.voice.channel|| message.member.voice.channel.id!=message.guild.me.voice.channel.id){
-        errorText(message,'Im not Playing for you');
-        return;
-    }
-
     if(!args[1]){
         return errorText(message,'Use playlist <save/view/delete/name>');
     }else if(args[1]==='save'){
@@ -78,7 +73,17 @@ module.exports = (args,message,servers) => {
                 return errorText(message,'Cannot find playlist with name '+args[1]);
             }else{
                 server.queue = server.queue.concat(pl.urlQueue);
-                return successText(message,'Playlist '+pl.name+' by <@'+pl.userID+'> has been added to current queue');
+                successText(message,'Playlist '+pl.name+' by <@'+pl.userID+'> has been added to current queue');
+                if(!server.dispatcher){
+                    if(!message.member.voice.channel){
+                        return errorText(message,'Not connected to voice channel');
+                    }
+                    if(!message.guild.me.voice.channel || (message.guild.me.voice.channel&&!server.dispatcher)){
+                        message.member.voice.channel.join().then((connection) =>{
+                            playSong(connection,message,servers);
+                        });
+                    }
+                }
             }
         })
     }

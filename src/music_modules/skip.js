@@ -22,6 +22,7 @@ module.exports = (message,servers) => {
             playSong(connection,message,servers);
         }else{
             qempty(message);
+            delete server.dispatcher;
             connection.disconnect();
         }
     });

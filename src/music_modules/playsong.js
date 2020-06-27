@@ -11,6 +11,7 @@ module.exports = playSong = (connection,message,servers) => {
         server.dispatcher = connection.play(ytdl(server.queue[0],{filter : "audioonly"}));
     }else{
         qempty(message);
+        delete server.dispatcher;
         connection.disconnect();
     }
     if(server.dispatcher){
@@ -37,6 +38,7 @@ module.exports = playSong = (connection,message,servers) => {
                 playSong(connection,message,servers);
             }else{
                 qempty(message);
+                delete server.dispatcher;
                 connection.disconnect();
             }
         })

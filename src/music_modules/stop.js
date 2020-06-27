@@ -17,6 +17,7 @@ module.exports = (message,servers) => {
             { name: ':octagonal_sign:   Stopping Player', value: 'GoodBye Human' },
         );
         message.channel.send(exitEmbed);
+        delete server.dispatcher;
         connection.disconnect();
     });
 }
