@@ -4,7 +4,7 @@
   "description": "",
   "main": "testbot.js",
   "scripts": {
-    "test": "nodemon nova.js"
+    "start": "node enigma.js"
   },
   "author": "",
   "license": "ISC",
