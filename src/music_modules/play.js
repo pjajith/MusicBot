@@ -23,7 +23,7 @@ module.exports = async (args,message,servers) => {
     if(ytdl.validateURL(args[1])){
         server.queue.push(args[1]);
     }else{
-        let videos = await scrapeYt.search(message.content.substring(6),{limit:1 , type:"video"});
+        let videos = await scrapeYt.search(message.content.substring(server.prefix.length+5),{limit:1 , type:"video"});
         server.queue.push('https://www.youtube.com/watch?v='+videos[0].id);
     }
 

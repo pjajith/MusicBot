@@ -13,6 +13,7 @@ module.exports = (message,servers) => {
     message.member.voice.channel.join().then((connection) =>{
         const exitEmbed = new Discord.MessageEmbed()
         .setTitle('Music :musical_note:')
+        .setColor('0xFF1A00')
 	    .addFields(
             { name: ':octagonal_sign:   Stopping Player', value: 'GoodBye Human' },
         );
