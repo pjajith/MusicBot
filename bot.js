@@ -9,7 +9,7 @@ dotenv.config();
 //servers
 var servers = {};
 
-mongoose.connect(process.env.database,{ useNewUrlParser: true , useUnifiedTopology: true, useCreateIndex:true},
+mongoose.connect(process.env.DATABASE,{ useNewUrlParser: true , useUnifiedTopology: true, useCreateIndex:true},
     () => console.log('DB Connected'));
 
 const fileimports = require('./src/config/fileimports.js');
