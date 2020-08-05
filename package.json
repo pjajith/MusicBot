@@ -4,7 +4,7 @@
   "description": "",
   "main": "testbot.js",
   "scripts": {
-    "start": "node enigma.js"
+    "start": "node bot.js"
   },
   "author": "",
   "license": "ISC",
