@@ -1,5 +1,6 @@
 const errorText = require('./errorText.js');
 const Discord = require('discord.js');
+const emoji = require('../config/emoji.js');
 module.exports = (message,servers) => {
 
     var server = servers[message.guild.id];
@@ -10,9 +11,9 @@ module.exports = (message,servers) => {
     }
     server.shuffle = !server.shuffle;
 
-    var text = 'FALSE  <:shufflered:726325190191087660>';
+    var text = 'FALSE  '+emoji.shuf_r;
     if(server.shuffle){
-        text = 'TRUE  <:shufflegreen:726325190593609789>';
+        text = 'TRUE  '+emoji.shuf_g;
     }
 
     const shuffleEmbed = new Discord.MessageEmbed()

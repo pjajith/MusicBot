@@ -1,6 +1,7 @@
 const ytdl = require('ytdl-core');
 const Discord = require('discord.js');
 const errorText = require('./errorText.js');
+const emoji = require('../config/emoji.js');
 
 module.exports = async (message,servers) => {
 
@@ -17,7 +18,7 @@ module.exports = async (message,servers) => {
         nowPlayingEmbed
         .setTitle('Music :musical_note:')
 	    .addFields(
-            { name: 'Now Playing', value: '<:play:726333947763490866>  '+songInfo.title }
+            { name: 'Now Playing', value: emoji.play+songInfo.title }
         );
     }else{
         nowPlayingEmbed

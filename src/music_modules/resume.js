@@ -1,5 +1,6 @@
 const errorText = require('./errorText.js');
 const Discord = require('discord.js');
+const emoji = require('../config/emoji.js');
 module.exports = (message,servers) => {
 
     var server = servers[message.guild.id];
@@ -18,7 +19,7 @@ module.exports = (message,servers) => {
     const resumeEmbed = new Discord.MessageEmbed()
     .setTitle('Music :musical_note:')
 	.addFields(
-        { name: '<:play:726333947763490866>  Resume Status', value: text },
+        { name: emoji.play + ' Resume Status', value: text },
     );
 
     message.channel.send(resumeEmbed);

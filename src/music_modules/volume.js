@@ -1,5 +1,6 @@
 const errorText = require('./errorText.js');
 const Discord = require('discord.js');
+const emoji = require('../config/emoji.js');
 
 module.exports = (args,message,servers) => {
 
@@ -10,21 +11,21 @@ module.exports = (args,message,servers) => {
         return;
     }
     if(!args[1] || isNaN(args[1]) || parseInt(args[1])< 0){
-        errorText(message,'Invalid number/No number specified setting Max Volume instead\nSetting volume to  <:volG:726334847773048883>100%');
+        errorText(message,'Invalid number/No number specified setting Max Volume instead\nSetting volume to  '+emoji.volG+'100%');
         server.dispatcher.setVolume(1);
     }
     else if(args[1]>100){
-        errorText(message,'Setting volume to  <:volG:726334847773048883>100% instead');
+        errorText(message,'Setting volume to  '+emoji.volG+'100% instead');
         server.dispatcher.setVolume(1);
     }
     else{
-        var volumeEmoji = '<:volG:726334847773048883>';
+        var volumeEmoji = emoji.volG;
         if(args[1]<=25){
-            volumeEmoji = '<:volR:726335447361519686>';
+            volumeEmoji = emoji.volR;
         }else if(args[1]<=50){
-            volumeEmoji = '<:volO:726335156474085466>';
+            volumeEmoji = emoji.volO;
         }else if(args[1]<=75){
-            volumeEmoji = '<:volY:726334847496355896>';
+            volumeEmoji = emoji.volY;
         }
         server.dispatcher.setVolume(args[1]/100);
         const volEmbed = new Discord.MessageEmbed()

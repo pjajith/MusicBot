@@ -1,5 +1,6 @@
 const errorText = require('./errorText.js');
 const Discord = require('discord.js');
+const emoji = require('../config/emoji.js');
 module.exports = (message,servers) => {
 
     var server = servers[message.guild.id];

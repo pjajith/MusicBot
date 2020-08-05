@@ -5,6 +5,7 @@ dotenv.config();
 const playSong = require('./playsong.js');
 const Discord = require('discord.js');
 const errorText = require('./errorText.js');
+const emoji = require('../config/emoji.js');
 
 module.exports = async (args,message,servers) => {
 
@@ -33,7 +34,7 @@ module.exports = async (args,message,servers) => {
         const addToQueue = new Discord.MessageEmbed()
         .setTitle('Music :musical_note:')
 	    .addFields(
-            { name: 'Queue Update', value: '<:queue:726340852976189440> Added '+songInfo.title + ' to queue' }
+            { name: 'Queue Update', value: emoji.queue+' Added '+songInfo.title + ' to queue' }
         );
 
         message.channel.send(addToQueue);

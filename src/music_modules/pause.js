@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const errorText = require('./errorText.js');
+const emoji = require('../config/emoji.js');
 
 module.exports = (message,servers) => {
 
@@ -20,7 +21,7 @@ module.exports = (message,servers) => {
     const pauseEmbed = new Discord.MessageEmbed()
     .setTitle('Music :musical_note:')
 	.addFields(
-        { name: '<:pause:726332561537630208>  Pause Status', value: text },
+        { name: emoji.pause+'  Pause Status', value: text },
     )
     .setDescription('Use resume to resume playing!');
 

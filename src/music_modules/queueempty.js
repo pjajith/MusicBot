@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const emoji = require('../config/emoji.js');
 
 module.exports = (message) => {
     const qemptyEmbed = new Discord.MessageEmbed()

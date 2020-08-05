@@ -1,5 +1,6 @@
 const Discord = require('discord.js');
 const errorText = require('./errorText.js');
+const emoji = require('../config/emoji.js');
 
 module.exports = (message,servers) => {
 
@@ -11,9 +12,9 @@ module.exports = (message,servers) => {
     }
     server.loop = !server.loop;
 
-    var text = 'FALSE  <:repeatred:726323421604085861>';
+    var text = 'FALSE  '+emoji.rep_r;
     if(server.loop){
-        text = 'TRUE  <:repeatgreen:726323626877648946>';
+        text = 'TRUE  '+emoji.rep_g;
     }
 
     const loopEmbed = new Discord.MessageEmbed()

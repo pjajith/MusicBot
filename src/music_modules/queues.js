@@ -2,6 +2,7 @@ const ytdl = require('ytdl-core');
 const Discord = require('discord.js');
 const errorText = require('./errorText.js');
 const qempty = require('./queueempty.js');
+const emoji = require('../config/emoji.js');
 
 module.exports = async (message,servers) => {
 
@@ -14,14 +15,14 @@ module.exports = async (message,servers) => {
 
     var queues= '';
     var embedColour = '0x30BF98';
-    var repeatEmoji = '<:repeatred:726323421604085861>';
-    var shuffleEmoji = '<:shufflered:726325190191087660>';
-    var volumeEmoji = '<:volG:726334847773048883>';
+    var repeatEmoji = emoji.rep_r;
+    var shuffleEmoji = emoji.shuf_r;
+    var volumeEmoji = emoji.volG;
 
     if(server.queue.length){
         for(var i = 0; i< server.queue.length;i++){
             var songInfo =  await ytdl.getInfo(server.queue[i]);
-            queues = queues + '<:queue:726340852976189440> '+songInfo.title+'\n';
+            queues = queues + emoji.queue+songInfo.title+'\n';
         }
     }else{
         return qempty(message);
@@ -30,17 +31,17 @@ module.exports = async (message,servers) => {
         embedColour = '0xEFFE00';
     }
     if(server.loop){
-        repeatEmoji = '<:repeatgreen:726323626877648946>';
+        repeatEmoji = emoji.rep_g;
     }
     if(server.shuffle){
-        shuffleEmoji = '<:shufflegreen:726325190593609789>';
+        shuffleEmoji = emoji.shuf_g;
     }
     if(server.dispatcher.volume<=0.25){
-        volumeEmoji = '<:volR:726335447361519686>';
+        volumeEmoji = emoji.volR;
     }else if(server.dispatcher.volume<=0.50){
-        volumeEmoji = '<:volO:726335156474085466>';
+        volumeEmoji = emoji.volO;
     }else if(server.dispatcher.volume<=0.75){
-        volumeEmoji = '<:volY:726334847496355896>';
+        volumeEmoji = emoji.volY;
     }
     var settings = repeatEmoji +'\t'+shuffleEmoji+'\t'+volumeEmoji+server.dispatcher.volume*100 ;
     const queueEmbed = new Discord.MessageEmbed()

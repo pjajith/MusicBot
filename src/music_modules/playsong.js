@@ -2,6 +2,7 @@ const ytdl = require('ytdl-core');
 const shuffle = require('./shuffle.js');
 const Discord = require('discord.js');
 const qempty = require('./queueempty.js');
+const emoji = require('../config/emoji.js');
 
 module.exports = playSong = (connection,message,servers) => {
 
@@ -21,7 +22,7 @@ module.exports = playSong = (connection,message,servers) => {
             const nowPlayingEmbed = new Discord.MessageEmbed()
             .setTitle('Music :musical_note:')
 	        .addFields(
-            { name: 'Now Playing', value: '<:play:726333947763490866>  '+songInfo.title }
+            { name: 'Now Playing', value: emoji.play +songInfo.title }
             );
 
             message.channel.send(nowPlayingEmbed);

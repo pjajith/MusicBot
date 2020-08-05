@@ -3,7 +3,7 @@ module.exports = (client,servers) => {
     client.on('message',message =>{
         if(!servers[message.guild.id]){
             servers[message.guild.id]={
-                prefix : '!',
+                prefix : '-',
                 version : 1.0,
                 queue : [],
                 loop : false,

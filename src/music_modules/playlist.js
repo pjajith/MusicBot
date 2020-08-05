@@ -4,6 +4,7 @@ var playlist = require('./playlistschema.js');
 const viewQueue = require('./viewqueue.js');
 const viewPlaylists = require('./viewplaylists.js');
 const successText = require('./successText.js');
+const emoji = require('../config/emoji.js');
 
 module.exports = (args,message,servers) => {
 
